@@ -39,7 +39,7 @@ class VaccineController extends Controller
         $validator = Validator::make($request->all(), [
             'earring' => 'required|integer|gt:0',
             'name' => 'required|max:100',
-            'date' => 'required|date_format:"Y-m-d"|before_or_equal:'.\date('Y-m-d'),
+            'date' => 'required|date_format:"Y-m-d"|before_or_equal:'.\date('Y-m-d').'|after_or_equal:'.\date('Y-m-d', strtotime('-7 days')),
             'reason' => 'required|max:255',            
         ]);
 

@@ -39,7 +39,7 @@ class MilkController extends Controller
         
         $validator = Validator::make($request->all(), [
             'earring' => 'required|integer|gt:0',
-            'date' => 'required|date_format:"Y-m-d"|before_or_equal:'.\date('Y-m-d'),
+            'date' => 'required|date_format:"Y-m-d"|before_or_equal:'.\date('Y-m-d').'|after_or_equal:'.\date('Y-m-d', strtotime('-7 days')),
             'time' => 'required|date_format:"H:i:s"|before_or_equal:'.\date('H:i:s'),
             'liters' => 'required|numeric|gt:0',
         ]);
